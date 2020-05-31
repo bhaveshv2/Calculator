@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
+</head>
+<body>
+    <div id="main-container">
+        <h1>Calculator</h1>
+        <div id="display-container">
+            <p id="display"> </p>
+        </div>
+        <div id="btns-container">
+            <div class="btn" data-value="ac">
+                <span>AC</span>
+            </div>
+            <div class="btn" data-value="negative">
+                <span>+/-</span>
+            </div>
+            <div class="btn" data-value="%">
+                <span> % </span>
+            </div>
+            <div class="btn red" data-value="/">
+                <span> / </span>
+            </div>
+            <div class="btn"  data-value="7">
+                <span>7</span>
+            </div>
+            <div class="btn"  data-value="8">
+                <span>8</span>
+            </div>
+            <div class="btn" data-value="9">
+                <span>9</span>
+            </div>
+            <div class="btn red"  data-value="*">
+                <span>*</span>
+            </div>
+            <div class="btn" data-value="4">
+                <span>4</span>
+            </div>
+            <div class="btn" data-value="5">
+                <span>5</span>
+            </div>
+            <div class="btn" data-value="6">
+                <span>6</span>
+            </div>
+            <div class="btn red" data-value="-">
+                <span>-</span>
+            </div>
+            <div class="btn"  data-value="1">
+                <span> 1 </span>
+            </div>
+            <div class="btn"  data-value="2">
+                <span> 2 </span>
+            </div>
+            <div class="btn" data-value="3">
+                <span> 3 </span>
+            </div>
+            <div class="btn red" data-value="+">
+                <span> + </span>
+            </div>
+            <div class="btn" id="zero" data-value="0">
+                <span> 0 </span>
+            </div>
+            <div class="btn" data-value=".">
+                <span> . </span>
+            </div>
+            <div class="btn red" data-value="=">
+                <span> = </span>
+            </div>
+        </div>
+    </div>
+    <script>
+        var btns = document.getElementsByClassName("btn");
+        var display = document.getElementById("display");
+
+        var op1 = 0;
+        var op2 = null;
+        var operator = null;
+
+        function isOperator(value) {
+            return value == "+" || value == "-" || value == "*" || value == "/";
+        }
+
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener('click', function () {
+
+                var value = this.getAttribute('data-value');
+                var text = display.innerHTML.trim();
+
+                if (value == "ac") {
+                    display.innerHTML = "";
+                } else if (isOperator(value)) {
+                    operator = value;
+                    op1 = parseFloat(text);
+                    display.innerHTML = "";
+                } else if (value == "negative") {
+                    op1 = parseFloat(text);
+                    op1 = -1 * op1;
+                    display.innerHTML = op1;
+                } else if (value == ".") {
+                    if (text.length && !text.includes('.')) {
+                        display.innerHTML = text + '.';
+                    }
+                } else if (value == "%") {
+                    op1 = parseFloat(text);
+                    op1 = op1 / 100;
+                    display.innerHTML = op1
+                } else if (value == "=") {
+                    op2 = parseFloat(text);
+                    var result = eval(op1 + ' ' + operator + ' ' + op2);
+                    if (result) {
+                        display.innerHTML = result;
+                        op1 = result;
+                        op2 = null;
+                        operator = null;
+                    }
+                } else {
+                    display.innerHTML += value;
+                }
+            });
+        }
+
+    </script>
+</body>
+<html>

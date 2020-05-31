@@ -1,0 +1,94 @@
+
+#main-container {
+    width: 45%;
+    height: 80%;
+    background-color: black;
+    margin: auto;
+    margin-top: 80px;
+    border: 2px solid #e2e0e0;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#main-container h1 {
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#display-container {
+    font-size: 2.8rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+    height: 20%;
+    min-height: 100px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#display-container p {
+    margin: 0.5rem;
+    vertical-align: text-bottom;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#btns-container {
+    width: 100%;
+    height: 60%;
+    min-height: 300px;
+    border: 1px solid #e2e0e0;
+    border-radius: var(--border-radius);
+    background-color: #e2e0e0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.btn {
+    width: 25%;
+    height: 20%;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e2e0e0;
+    background-color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition-duration: 1s;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.btn:hover {
+    background-color:  #ffc877;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.red {
+    background-color:  #c14444;
+    color: white;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#zero {
+    width: 50%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
